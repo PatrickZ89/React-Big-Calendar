@@ -33,14 +33,13 @@ const globalizeLocalizer = localizer(globalize)
 let demoRoot =
   'https://github.com/intljusticemission/react-big-calendar/tree/master/examples/demos'
 
+// All the options as they will appear on the DOM
 const EXAMPLES = {
   basic: 'Basic Calendar',
   selectable: 'Create events',
-  cultures: 'Localization',
   popup: 'Show more via a popup',
   timeslots: 'Custom Time Grids',
   rendering: 'Customized Component Rendering',
-  customView: 'Custom Calendar Views',
   resource: 'Resource Scheduling',
   dnd: 'Addon: Drag and drop',
 }
@@ -70,10 +69,8 @@ class Example extends React.Component {
     let Current = {
       basic: Basic,
       selectable: Selectable,
-      cultures: Cultures,
       popup: Popup,
       rendering: Rendering,
-      customView: CustomView,
       resource: Resource,
       timeslots: Timeslots,
       dnd: Dnd,
@@ -82,30 +79,6 @@ class Example extends React.Component {
 
     return (
       <div className="app">
-        <div className="jumbotron">
-          <div className="container">
-            <h1>
-              Big Calendar <i className="fa fa-calendar" />
-            </h1>
-            <p>such enterprise, very business.</p>
-            <p>
-              <a href="#intro">
-                <i className="fa fa-play" /> Getting started
-              </a>
-              {' | '}
-              <a href="#api">
-                <i className="fa fa-book" /> API documentation
-              </a>
-              {' | '}
-              <a
-                target="_blank"
-                href="https://github.com/intljusticemission/react-big-calendar"
-              >
-                <i className="fa fa-github" /> github
-              </a>
-            </p>
-          </div>
-        </div>
         <div className="examples">
           <Card className="examples--header">
             <Layout
@@ -113,14 +86,6 @@ class Example extends React.Component {
               justify="space-between"
               style={{ marginBottom: 15 }}
             >
-              <div className="examples--view-source">
-                <a target="_blank" href={demoRoot + '/' + selected + '.js'}>
-                  <strong>
-                    <i className="fa fa-code" />
-                    {' View example source code'}
-                  </strong>
-                </a>
-              </div>
               <Dropdown
                 pullRight
                 id="examples-dropdown"
@@ -148,12 +113,6 @@ class Example extends React.Component {
           <div className="example">
             <Current localizer={globalizeLocalizer} />
           </div>
-        </div>
-        <div className="docs">
-          <div className="contain section">
-            <Intro />
-          </div>
-          <Api className="contain section" />
         </div>
       </div>
     )
