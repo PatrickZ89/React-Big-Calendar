@@ -17,10 +17,8 @@ import Card from './Card'
 import ExampleControlSlot from './ExampleControlSlot'
 import Basic from './demos/basic'
 import Selectable from './demos/selectable'
-import Cultures from './demos/cultures'
 import Popup from './demos/popup'
 import Rendering from './demos/rendering'
-import CustomView from './demos/customView'
 import Resource from './demos/resource'
 import DndResource from './demos/dndresource'
 import Timeslots from './demos/timeslots'
@@ -66,6 +64,9 @@ class Example extends React.Component {
 
   render() {
     let selected = this.state.selected
+
+    // the currently selected component to show. Uses bracket notation
+    // on this object to get the component associated with the currently selected option (ABOVE!)
     let Current = {
       basic: Basic,
       selectable: Selectable,
@@ -78,7 +79,7 @@ class Example extends React.Component {
     }[selected]
 
     return (
-      <div className="app">
+      <div className="app flex-parent">
         <div className="examples">
           <Card className="examples--header">
             <Layout
@@ -114,6 +115,7 @@ class Example extends React.Component {
             <Current localizer={globalizeLocalizer} />
           </div>
         </div>
+        <div className="my-event">Hi i am an event</div>
       </div>
     )
   }
